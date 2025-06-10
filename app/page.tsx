@@ -103,7 +103,7 @@ export default function Home() {
       const messages = [
         {
           role: "system",
-          content: "You are a creative poet who writes beautiful, meaningful poems based on images. Write in a happy positive style. Your poems should be 4-8 lines long and capture the essence, emotions, and story of the image in an artistic way."
+          content: "You are a creative poet who writes beautiful, meaningful poems based on images. Generate a poem with exactly two stanzas, each with four lines. Write in a happy positive style. Your poems should be 4-8 lines long and capture the essence, emotions, and story of the image in an artistic way."
         },
         {
           role: "user",
