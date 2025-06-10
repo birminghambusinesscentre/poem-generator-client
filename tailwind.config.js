@@ -12,6 +12,8 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
+        roboto: ["var(--font-roboto)"],
+        oswald: ["var(--font-oswald)"],
       },
     },
   },

@@ -2,8 +2,10 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@heroui/link";
 import clsx from "clsx";
+import Image from "next/image";
 
 import { Providers } from "./providers";
+import { defaultTheme } from "@/config/themes";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -35,12 +37,20 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen text-foreground bg-background font-sans antialiased",
+          "min-h-screen font-sans antialiased relative",
+          defaultTheme.textColor,
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+        <Image
+          src={defaultTheme.imagePath}
+          alt="Background"
+          fill
+          priority
+          className="object-cover fixed z-0"
+        />
+        <Providers themeProps={{ attribute: "class", defaultTheme: "white" }}>
+          <div className="relative flex flex-col h-screen z-10">
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
