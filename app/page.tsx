@@ -472,7 +472,7 @@ export default function Home() {
             <h2 className="text-xl font-semibold ">Enter your email</h2>
           </ModalHeader>
           <ModalBody>
-            <p className="mb-4">Please enter your email to download your poem and image.</p>
+            <p className="mb-4">Please enter your email so we can send you it to your email.</p>
             <Input
               type="email"
               placeholder="Enter your email"
