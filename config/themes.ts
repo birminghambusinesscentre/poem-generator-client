@@ -41,7 +41,7 @@ export const themes: Theme[] = [
     imageDecorationsOnTop: {
       center: "/decorations/flower_garden.png",
       right: "/decorations/pink_butterly.png",
-      left: "/decorations/flying_owl.png"
+      left: "/decorations/hummingbird.png"
     }
 
   },
