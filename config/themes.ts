@@ -28,17 +28,20 @@ export const themes: Theme[] = [
   },
   {
     id: "pink-gradient",
-    name: "Bell Garden Tour",
+    name: "Lake Shore West Garden Tour",
     imagePath: "/background_images/pink_gradient.png",
     textColor: "text-black dark:text-white",
     system:
-      "Your task is to write a poem based on provided image which will be about sitting in beautiful garden at the Bell Garden Courtyard event space. Even if you think image is not in garden pretend as it is.",
-    description: "Serene poems capturing the beauty of Bell Garden Courtyard event space.",
-    imageDecoration1: null,
+      "Your task is to write a poem based on provided image which will be taken outside during the Lake Shore West Garden Tour event at Bell Garden Courtyard. " +
+      "The event spans multiple locations but this particular image is from the Bell Garden Courtyard location. " +
+      "Poem should rhyme" +
+      "Even if you think image is not in garden pretend as it is.",
+    description: "Serene poems capturing the outdoor beauty during Lake Shore West Garden Tour at Bell Garden Courtyard.",
+    imageDecoration1: "/decorations/garden_tour.png",
     imageDecorationsOnTop: {
-      center: null,
-      right: null,
-      left: null
+      center: "/decorations/flower_garden.png",
+      right: "/decorations/pink_butterly.png",
+      left: "/decorations/flying_owl.png"
     }
 
   },
