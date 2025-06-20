@@ -6,8 +6,13 @@ import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@herou
 import { useState, useRef, useEffect } from "react";
 import html2canvas from 'html2canvas';
 import { Canvg } from 'canvg';
+import { useTheme } from "@/components/ThemeProvider";
+import ThemeSelectorModal from "@/components/ThemeSelectorModal";
+import clsx from "clsx";
+import { fontSans } from "@/config/fonts";
 
 export default function Home() {
+  const { currentTheme, setCurrentTheme } = useTheme();
   const [image, setImage] = useState<string | null>(null);
   const [poem, setPoem] = useState("");
   const [loading, setLoading] = useState(false);
@@ -17,6 +22,7 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const videoRef = useRef<HTMLVideoElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const [showThemeModal, setShowThemeModal] = useState(true);
 
  
   // Clean up function to stop the camera when component unmounts
@@ -98,17 +104,21 @@ export default function Home() {
 
   const generatePoem = async (imageDataUrl: string) => {
     setLoading(true);
+
     try {
       // Prepare the messages for Groq API
       const messages = [
         {
           role: "system",
-          content: "You are a creative poet who writes beautiful, meaningful poems based on images. Generate a poem with exactly two stanzas, each with four lines. Write in a happy positive style. Your poems should be 4-8 lines long and capture the essence, emotions, and story of the image in an artistic way."
+          content: "You are a creative poet who writes beautiful, meaningful poems based on images." + 
+          "Generate a poem with exactly two stanzas, each with four lines. Write in a happy positive style. " +
+          "Your poems should be 4-8 lines long and capture the essence, emotions, and story of the image in an artistic way."
         },
         {
           role: "user",
           content: [
-            { type: "text", text: "Your task is to write a poem based on provided image which is inside office in Birmingham Business Centre buillding. You should only return a poem, nothing else." },
+            { type: "text", text: currentTheme.system
+              + " You should only return a poem, nothing else." },
             {
               type: "image_url",
               image_url: {
@@ -173,14 +183,14 @@ export default function Home() {
         await new Promise(resolve => setTimeout(resolve, 1000));
 
         const canvas = await html2canvas(document.body, {
-          backgroundColor: '#000000',
           logging: true,
-          scale: 2,
-          windowWidth: document.documentElement.scrollWidth,
-          windowHeight: document.documentElement.scrollHeight,
-          width: document.documentElement.scrollWidth,
-          height: document.documentElement.scrollHeight,
+          scale: 1,
+          windowWidth: window.innerWidth,
+          windowHeight: window.innerHeight,
+          width: window.innerWidth,
+          height: window.innerHeight,
           allowTaint: true,
+          scrollX: 0, scrollY: 0, x: 0, y: 0
         });
         
         // Show buttons again
@@ -204,6 +214,13 @@ export default function Home() {
 
   return (
     <>
+       <ThemeSelectorModal
+     open={showThemeModal}
+     onSelect={(selectedTheme) => {
+       setShowThemeModal(false);
+       setCurrentTheme(selectedTheme);
+     }}
+   />
       <div className="fixed top-4 left-4 z-10 flex items-center justify-between w-full px-4">
         <div className="flex items-center gap-4">
         <svg className="object-contain w-32 h-32" width="2000" height="2000" id="bir_logo" preserveAspectRatio="xMidYMid meet" data-bbox="10.295 21.25 1481.355 1466.864" viewBox="10.295 21.25 1481.355 1466.864" xmlns="http://www.w3.org/2000/svg" data-type="shape" role="presentation" aria-hidden="true" aria-label="">
@@ -275,21 +292,63 @@ export default function Home() {
     </g>
 </svg>
 
-        <div className="">
-          <p className="text-2xl font-semibold">Come visit us!</p>
-          <p className="text-lg">80 Birmingham Street</p>
-          <p className="text-lg">Historic Bell Building </p>
-          <p className="text-lg">+1 (416) 252-7731 </p>
-        </div>
-        </div>
-        <div className=" text-center">
-          <p className="text-4xl font-bold">Happy Memories!</p>
-        </div>
-        <div className="text-right pr-8">
-          <p className="text-2xl font-semibold">Birmingham Business Centre</p>
-          <p className="text-2xl font-semibold">Bell Garden Courtyard</p>
-          <p className="text-lg">birminghambusinesscentre.com</p>
+          <div className="space-y-1">
+            <div className="text-2xl font-semibold leading-tight">Come visit us!</div>
+            <div className="text-lg leading-tight">80 Birmingham Street</div>
+            <div className="text-lg leading-tight">Historic Bell Building</div>
+            <div className="text-lg leading-tight">Office: +1 (416) 252-7731</div>
+          </div>
 
+        </div>
+        <div className="text-center">
+          {currentTheme.imageDecorationsOnTop && (currentTheme.imageDecorationsOnTop.center || currentTheme.imageDecorationsOnTop.right || currentTheme.imageDecorationsOnTop.left) ? (
+            <div className="relative flex justify-center mt-0">
+              {currentTheme.imageDecorationsOnTop.left && (
+                <img
+                  src={currentTheme.imageDecorationsOnTop.left}
+                  alt="Theme decoration left"
+                  className="absolute w-40 h-40 object-contain"
+                  style={{
+                    width: '160px',
+                    height: '160px',
+                    left: 'calc(50% - 260px)'
+                  }}
+                />
+              )}
+              {currentTheme.imageDecorationsOnTop.center && (
+                <img
+                  src={currentTheme.imageDecorationsOnTop.center}
+                  alt="Theme decoration center"
+                  className="w-40 h-40 object-contain"
+                  style={{
+                    width: '160px',
+                    height: '160px'
+                  }}
+                />
+              )}
+              {currentTheme.imageDecorationsOnTop.right && (
+                <img
+                  src={currentTheme.imageDecorationsOnTop.right}
+                  alt="Theme decoration right"
+                  className="absolute w-40 h-40 object-contain"
+                  style={{
+                    width: '160px',
+                    height: '160px',
+                    left: 'calc(50% + 100px)'
+                  }}
+                />
+              )}
+            </div>
+          ) : (
+            <p className="text-4xl font-bold">Happy Memories!</p>
+          )}
+        
+        </div>
+        <div className="text-right pr-8 space-y-1">
+          <div className="text-2xl font-semibold leading-tight">Birmingham Business Centre</div>
+          <div className="text-2xl font-semibold leading-tight">Bell Garden Courtyard</div>
+          <div className="text-lg leading-tight">birminghambusinesscentre.com</div>
+          <div className="text-lg leading-tight">Christina Cell: +1 (416) 605-1091</div>
         </div>
       </div>
 
@@ -342,10 +401,10 @@ export default function Home() {
                   <div className="space-y-2">
                     <h2 className="text-3xl font-semibold text-black">A Special poem just for you!</h2>
                     <p className="text-slate-600">An interactive AI Poetry exhibit</p>
-                    <p className="text-slate-500 text-sm">Made by Alexandre Fomchenko (fomchenko.design)</p>
+                    <p className="text-slate-500 text-sm">Program made by Alexandre Fomchenko (https://fomchenko.design)</p>
                   </div>
-                  <div className="bg-black backdrop-blur-sm rounded-2xl p-8 shadow-[0_0_25px_rgba(59,130,246,0.1)]">
-                    <p className="whitespace-pre-line text-lg leading-relaxed text-slate-200 font-serif">{poem}</p>
+                  <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl text-center p-8 shadow-[0_0_25px_rgba(59,130,246,0.1)]">
+                    <p className="whitespace-pre-line text-lg text-center leading-relaxed text-slate-100 font-serif">{poem}</p>
                   </div>
                 </div>
               ) : (
@@ -392,6 +451,21 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* ImageDecoration1 Display - positioned at right bottom */}
+      {currentTheme.imageDecoration1 && (
+        <img
+          src={currentTheme.imageDecoration1}
+          alt="Theme decoration"
+          className="fixed bottom-16 right-8 w-48 h-48 object-contain transform rotate-12 z-10 pointer-events-none"
+          style={{
+            width: '192px',
+            height: '192px'
+          }}
+        />
+      )}
+
+
+
       <Modal isOpen={showEmailModal} onClose={() => setShowEmailModal(false)}>
         <ModalContent>
           <ModalHeader>
