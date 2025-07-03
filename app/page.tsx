@@ -310,7 +310,7 @@ export default function Home() {
                   className="absolute w-40 h-40 object-contain"
                   style={{
                     width: '160px',
-                    height: '160px',
+                    height: '146px',
                     left: 'calc(50% - 260px)'
                   }}
                 />
@@ -319,10 +319,10 @@ export default function Home() {
                 <img
                   src={currentTheme.imageDecorationsOnTop.center}
                   alt="Theme decoration center"
-                  className="w-40 h-40 object-contain"
+                  className="w-40 h-38 object-contain"
                   style={{
                     width: '160px',
-                    height: '160px'
+                    height: '152px'
                   }}
                 />
               )}
@@ -330,10 +330,10 @@ export default function Home() {
                 <img
                   src={currentTheme.imageDecorationsOnTop.right}
                   alt="Theme decoration right"
-                  className="absolute w-40 h-40 object-contain"
+                  className="absolute w-40 h-38 object-contain"
                   style={{
                     width: '160px',
-                    height: '160px',
+                    height: '152px',
                     left: 'calc(50% + 100px)'
                   }}
                 />
@@ -401,7 +401,7 @@ export default function Home() {
                   <div className="space-y-2">
                     <h2 className="text-3xl font-semibold text-black">A Special poem just for you!</h2>
                     <p className="text-slate-600">An interactive AI Poetry exhibit</p>
-                    <p className="text-slate-500 text-sm">Program made by Alexandre Fomchenko (https://fomchenko.design)</p>
+                    <p className="text-slate-500 text-sm">Program made by Alexandre Fomchenko (https://fomchenko.dev)</p>
                   </div>
                   <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl text-center p-8 shadow-[0_0_25px_rgba(59,130,246,0.1)]">
                     <p className="whitespace-pre-line text-lg text-center leading-relaxed text-slate-100 font-serif">{poem}</p>

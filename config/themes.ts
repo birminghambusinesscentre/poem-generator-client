@@ -47,14 +47,14 @@ export const themes: Theme[] = [
   },
   {
     id: "girl-birthday",
-    name: "Sophia's Birthday Celebration",
+    name: "Girl Birthday Celebration",
     imagePath: "/background_images/pink_gradient.png",
     textColor: "text-black dark:text-white",
     system:
       "Your task is to write a cheerful and celebratory poem based on provided image which will be on a place of girl's birthday celebration. "
       + "Focus on joy, fun, friendship, and all the wonderful moments that make a birthday special. "
       + "The image is on place of birthday celebration, the person on image is not directly girl that celeebrates birthday, it can be just a friend or a family member. Don't mention if it is the birthday girl or not because you can not tell. "
-      + "The name of who's birthday is Sophia."
+      + "The name of who's birthday is Girl."
       + "Even if the image doesn't directly show a birthday party, interpret it through the lens of birthday celebration and happiness." 
       + " Make poem be about the person in the image.",
     description: "Joyful poems celebrating special birthday moments for girls.",
@@ -63,7 +63,28 @@ export const themes: Theme[] = [
       center: "/decorations/birthday_with_4_people.png",
       right: "/decorations/bouncy_castle.png",
       left: "/decorations/baloons.png"
-    }
+    },
+  },
+  {
+    id: "girl-baptism",
+    name: "Sophia's Baptism Party",
+      imagePath: "/background_images/pink_gradient.png",
+      textColor: "text-black dark:text-white",
+      system:
+      "Your task is to write a cheerful and celebratory poem based on provided image which will be on a place of girl's baptism celebration. "
+      + "Focus on joy, blessing, family, and all the wonderful moments that make a baptism special. "
+      + "The image is on place of baptism celebration, the person on image is not directly the girl being baptized, it can be just a friend or a family member. Don't mention if it is the baptized girl or not because you can not tell. "
+      + "The name of who's baptism is Sophia."
+      + "Even if the image doesn't directly show a baptism party, interpret it through the lens of baptism celebration and happiness." 
+      + " Make poem be about the person in the image.",
+    description: "Joyful poems celebrating special baptism moments for girls.",
+
+      imageDecoration1: "/decorations/girl_baptism.png",
+      imageDecorationsOnTop: {
+        center: "/decorations/fountain.png",
+        right: "/decorations/Chritsian Bird With Water.png",
+        left: "/decorations/bird_and_Christ.png"
+      }
 
   },
 ];
