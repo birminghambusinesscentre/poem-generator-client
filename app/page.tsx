@@ -10,6 +10,7 @@ import { useTheme } from "@/components/ThemeProvider";
 import ThemeSelectorModal from "@/components/ThemeSelectorModal";
 import clsx from "clsx";
 import { fontSans } from "@/config/fonts";
+import axios from "axios";
 
 export default function Home() {
   const { currentTheme, setCurrentTheme } = useTheme();
@@ -110,9 +111,12 @@ export default function Home() {
       const messages = [
         {
           role: "system",
-          content: "You are a creative poet who writes beautiful, meaningful poems based on images." + 
-          "Generate a poem with exactly two stanzas, each with four lines. Write in a happy positive style. " +
-          "Your poems should be 4-8 lines long and capture the essence, emotions, and story of the image in an artistic way."
+          content: "You are a creative poet who writes beautiful, meaningful poems based on images. " + 
+          "CRITICAL FORMATTING REQUIREMENTS: Generate a poem with EXACTLY two stanzas, each containing EXACTLY four lines. " +
+          "The structure must be: First stanza (4 lines), then EXACTLY ONE blank line (not two or more), then second stanza (4 lines). " +
+          "Each line should end with a rhyme that creates a consistent ABAB or AAAA rhyme scheme within each stanza. " +
+          "Write in a happy, positive, uplifting style. The poem must capture the essence, emotions, and story of the image. " +
+          "DO NOT include any additional text, explanations, or content - return ONLY the poem in the specified format."
         },
         {
           role: "user",
@@ -130,28 +134,21 @@ export default function Home() {
       ];
 
       // Call Groq API
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
+      const response = await axios.post('https://api.groq.com/openai/v1/chat/completions', {
+        model: "meta-llama/llama-4-scout-17b-16e-instruct",
+        messages
+      }, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer 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'
-        },
-        body: JSON.stringify({
-          model: "meta-llama/llama-4-scout-17b-16e-instruct",
-          messages
-        })
+        }
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to generate poem');
-      }
-
-      const data = await response.json();
-      const generatedPoem = data.choices[0].message.content.trim();
+      const generatedPoem = response.data.choices[0].message.content.trim();
       setPoem(generatedPoem);
     } catch (error) {
       console.error('Error generating poem:', error);
-      setPoem("Sorry, I couldn't generate a poem at this time. Please try again.");
+      setPoem("Sorry, I couldn't generate a poem at this time. Please try again. Error: " + error);
     } finally {
       setLoading(false);
     }
