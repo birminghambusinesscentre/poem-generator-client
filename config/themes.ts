@@ -12,6 +12,26 @@ export interface Theme {
 
 export const themes: Theme[] = [
   {
+    id: "isabella-8th-birthday",
+    name: "Isabella's 8th Birthday",
+    imagePath: "/background_images/pink_gradient.png",
+    textColor: "text-black dark:text-white",
+    system:
+      "Your task is to write a cheerful and celebratory poem based on provided image which will be on a place of Isabella's 8th birthday celebration. "
+      + "Focus on joy, fun, friendship, and all the wonderful moments that make a birthday special. "
+      + "The image is on place of birthday celebration, the person on image is not directly Isabella that celebrates birthday, it can be just a friend or a family member. Don't mention if it is the birthday girl or not because you can not tell. "
+      + "The name of who's birthday is Isabella."
+      + "Even if the image doesn't directly show a birthday party, interpret it through the lens of birthday celebration and happiness." 
+      + " Make poem be about the person in the image.",
+    description: "Joyful poems celebrating Isabella's special 8th birthday moments.",
+    imageDecoration1: "/decorations/isabella.png",
+    imageDecorationsOnTop: {
+      center: "/decorations/birthday_with_4_people.png",
+      right: "/decorations/bouncy_castle.png",
+      left: "/decorations/baloons.png"
+    },
+  },
+  {
     id: "blue-gradient",
     name: "Birmingham Business Centre Old Phones",
     imagePath: "/background_images/blue_gradient.png",
