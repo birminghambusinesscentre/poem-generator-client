@@ -7,14 +7,16 @@ export interface Theme {
   description: string;
   // recommended cartoon transparent images -  SQUARE
   imageDecoration1: string | null; 
-  imageDecorationsOnTop: { [key: string]: string | null } | null; 
+  imageDecorationsOnTop: { [key: string]: string | null } | null;
+  rightRight?: string | null;
+  leftLeft?: string | null;
 }
 
 export const themes: Theme[] = [
   {
     id: "isabella-8th-birthday",
     name: "Isabella's 8th Birthday",
-    imagePath: "/background_images/pink_gradient.png",
+    imagePath: "/background_images/blue_gradient.png",
     textColor: "text-black dark:text-white",
     system:
       "Your task is to write a cheerful and celebratory poem based on provided image which will be on a place of Isabella's 8th birthday celebration. "
@@ -30,6 +32,8 @@ export const themes: Theme[] = [
       right: "/decorations/bouncy_castle.png",
       left: "/decorations/baloons.png"
     },
+    rightRight: "/decorations/palm.png",
+    leftLeft: "/decorations/parrot.png"
   },
   {
     id: "blue-gradient",

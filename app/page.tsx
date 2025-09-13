@@ -300,6 +300,18 @@ export default function Home() {
         <div className="text-center">
           {currentTheme.imageDecorationsOnTop && (currentTheme.imageDecorationsOnTop.center || currentTheme.imageDecorationsOnTop.right || currentTheme.imageDecorationsOnTop.left) ? (
             <div className="relative flex justify-center mt-0">
+              {currentTheme.leftLeft && (
+                <img
+                  src={currentTheme.leftLeft}
+                  alt="Theme decoration left left"
+                  className="absolute w-40 h-40 object-contain"
+                  style={{
+                    width: '160px',
+                    height: '146px',
+                    left: 'calc(50% - 420px)'
+                  }}
+                />
+              )}
               {currentTheme.imageDecorationsOnTop.left && (
                 <img
                   src={currentTheme.imageDecorationsOnTop.left}
@@ -332,6 +344,18 @@ export default function Home() {
                     width: '160px',
                     height: '152px',
                     left: 'calc(50% + 100px)'
+                  }}
+                />
+              )}
+              {currentTheme.rightRight && (
+                <img
+                  src={currentTheme.rightRight}
+                  alt="Theme decoration right right"
+                  className="absolute w-40 h-38 object-contain"
+                  style={{
+                    width: '160px',
+                    height: '152px',
+                    left: 'calc(50% + 260px)'
                   }}
                 />
               )}
