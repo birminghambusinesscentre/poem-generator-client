@@ -424,7 +424,10 @@ export default function Home() {
                     <p className="text-slate-600">An interactive AI Poetry exhibit</p>
                     <p className="text-slate-500 text-sm">Program made by Alexandre Fomchenko (https://fomchenko.dev)</p>
                   </div>
-                  <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl text-center p-8 shadow-[0_0_25px_rgba(59,130,246,0.1)]">
+                  <div 
+                    className="backdrop-blur-sm rounded-2xl text-center p-8 shadow-[0_0_25px_rgba(59,130,246,0.1)]"
+                    style={currentTheme.poemBackgroundColor}
+                  >
                     <p className="whitespace-pre-line text-lg text-center leading-relaxed text-slate-100 font-serif">{poem}</p>
                   </div>
                 </div>

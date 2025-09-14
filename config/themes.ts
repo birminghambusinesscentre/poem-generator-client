@@ -10,13 +10,14 @@ export interface Theme {
   imageDecorationsOnTop: { [key: string]: string | null } | null;
   rightRight?: string | null;
   leftLeft?: string | null;
+  poemBackgroundColor: React.CSSProperties;
 }
 
 export const themes: Theme[] = [
   {
     id: "isabella-8th-birthday",
     name: "Isabella's 8th Birthday",
-    imagePath: "/background_images/blue_gradient.png",
+    imagePath: "/background_images/pink_gradient.png",
     textColor: "text-black dark:text-white",
     system:
       "Your task is to write a cheerful and celebratory poem based on provided image which will be on a place of Isabella's 8th birthday celebration. "
@@ -33,7 +34,8 @@ export const themes: Theme[] = [
       left: "/decorations/baloons.png"
     },
     rightRight: "/decorations/palm.png",
-    leftLeft: "/decorations/parrot.png"
+    leftLeft: "/decorations/parrot.png",
+    poemBackgroundColor: { backgroundColor: "rgba(96, 141, 177, 0.6)" }
   },
   {
     id: "blue-gradient",
@@ -48,7 +50,8 @@ export const themes: Theme[] = [
       center: null,
       right: null,
       left: null
-    }
+    },
+    poemBackgroundColor: { backgroundColor: "rgba(128, 128, 128, 0.5)" }
   },
   {
     id: "pink-gradient",
@@ -66,7 +69,8 @@ export const themes: Theme[] = [
       center: "/decorations/flower_garden.png",
       right: "/decorations/pink_butterly.png",
       left: "/decorations/hummingbird.png"
-    }
+    },
+    poemBackgroundColor: { backgroundColor: "rgba(128, 128, 128, 0.5)" }
 
   },
   {
@@ -88,6 +92,7 @@ export const themes: Theme[] = [
       right: "/decorations/bouncy_castle.png",
       left: "/decorations/baloons.png"
     },
+    poemBackgroundColor: { backgroundColor: "rgba(128, 128, 128, 0.5)" }
   },
   {
     id: "girl-baptism",
@@ -108,7 +113,8 @@ export const themes: Theme[] = [
         center: "/decorations/fountain.png",
         right: "/decorations/Chritsian Bird With Water.png",
         left: "/decorations/bird_and_Christ.png"
-      }
+      },
+      poemBackgroundColor: { backgroundColor: "rgba(128, 128, 128, 0.5)" }
 
   },
 ];
