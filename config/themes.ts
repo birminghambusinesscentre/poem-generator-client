@@ -15,6 +15,27 @@ export interface Theme {
 
 export const themes: Theme[] = [
   {
+    id: "st-michael-picnic",
+    name: "St. Michael's Ukrainian Catholic Church Picnic",
+    imagePath: "/background_images/blue_gradient.png",
+    textColor: "text-black dark:text-white",
+    system:
+      "Your task is to write a joyful and celebratory poem based on provided image which will be taken during St. Michael's Ukrainian Catholic Church Picnic. " +
+      "Focus on community, fellowship, faith, tradition, Ukrainian heritage, and the wonderful moments that bring people together at a church picnic. " +
+      "The image is from the picnic celebration, capturing the spirit of Ukrainian Catholic Church community gathering. " +
+      "Even if the image doesn't directly show a church picnic, interpret it through the lens of community celebration, faith, and Ukrainian Catholic traditions. " +
+      "Make the poem about the person(s) in the image and their connection to this special community event. " +
+      "Include themes of blessing, gratitude, heritage, and the joy of sharing faith and culture together.",
+    description: "Heartwarming poems celebrating community, faith, and Ukrainian heritage at St. Michael's Church Picnic.",
+    imageDecoration1: "/decorations/stMichaelLogo.png",
+    imageDecorationsOnTop: {
+      center: "/decorations/crossAndKids.png",
+      right: "/decorations/foodUkrainian.png",
+      left: "/decorations/UkrainianFamily.png"
+    },
+    poemBackgroundColor: { backgroundColor: "rgba(70, 130, 180, 0.6)" }
+  },
+  {
     id: "isabella-8th-birthday",
     name: "Isabella's 8th Birthday",
     imagePath: "/background_images/pink_gradient.png",
@@ -116,7 +137,7 @@ export const themes: Theme[] = [
       },
       poemBackgroundColor: { backgroundColor: "rgba(128, 128, 128, 0.5)" }
 
-  },
+  }
 ];
 
 // Set a default theme initially
