@@ -17,7 +17,7 @@ export const themes: Theme[] = [
   {
     id: "senior-paws-fundraiser",
     name: "Senior Paws Canada Charity Fundraiser",
-    imagePath: "/background_images/senior_paws_gradient.png",
+    imagePath: "/background_images/senior_paws_vintage_bg.svg",
     textColor: "text-black dark:text-white",
     system:
       "Your task is to write a heartwarming and tender poem based on the provided image which will be taken at the Senior Paws Canada charity fundraiser — a community event raising support for senior pets in their golden years. " +
@@ -27,7 +27,7 @@ export const themes: Theme[] = [
       "Make the poem about the person(s) in the image and their part in this gentle, generous gathering. " +
       "Include feelings of warmth, gratitude, soft golden memories, and the simple beauty of helping creatures who have given so much love.",
     description: "Tender poems celebrating compassion, golden memories, cherry blossoms, lucky shamrocks, and the loving spirit of the Senior Paws Canada fundraiser.",
-    imageDecoration1: "/decorations/senior_paws_official_logo.png",
+    imageDecoration1: "/decorations/new_paws_logo.png",
     imageDecorationsOnTop: {
       center: "/decorations/senior_pets_group.png",
       right: "/decorations/senior_dog_japanese.png",
@@ -35,7 +35,11 @@ export const themes: Theme[] = [
     },
     rightRight: "/decorations/cherry_blossom_branch.png",
     leftLeft: "/decorations/shamrock_chain.png",
-    poemBackgroundColor: { backgroundColor: "rgba(196, 120, 60, 0.55)" }
+    poemBackgroundColor: {
+      backgroundColor: "rgba(31, 58, 31, 0.92)",
+      border: "3px solid #C19A3F",
+      boxShadow: "0 0 0 2px rgba(31,58,31,0.92), 0 12px 30px rgba(31,58,31,0.35)",
+    },
   },
   {
     id: "st-michael-picnic",
