@@ -15,6 +15,29 @@ export interface Theme {
 
 export const themes: Theme[] = [
   {
+    id: "senior-paws-fundraiser",
+    name: "Senior Paws Canada Charity Fundraiser",
+    imagePath: "/background_images/senior_paws_gradient.png",
+    textColor: "text-black dark:text-white",
+    system:
+      "Your task is to write a heartwarming and tender poem based on the provided image which will be taken at the Senior Paws Canada charity fundraiser — a community event raising support for senior pets in their golden years. " +
+      "The event features delicious Japanese fried chicken (karaage) and food, along with an Irish mobile pub wagon serving guests, so feel free to weave in gentle hints of cherry blossoms (sakura), Japanese flavors, lucky shamrocks, or the cozy charm of an Irish pub if it fits the image naturally. " +
+      "Focus on themes of kindness, compassion, generosity, the quiet wisdom of older animals, the bond between humans and pets, and the joy of giving back. " +
+      "Even if the image doesn't directly show pets or the fundraiser, interpret it through the lens of warmth, care, and the loving spirit of supporting senior animals. " +
+      "Make the poem about the person(s) in the image and their part in this gentle, generous gathering. " +
+      "Include feelings of warmth, gratitude, soft golden memories, and the simple beauty of helping creatures who have given so much love.",
+    description: "Tender poems celebrating compassion, golden memories, cherry blossoms, lucky shamrocks, and the loving spirit of the Senior Paws Canada fundraiser.",
+    imageDecoration1: "/decorations/senior_paws_official_logo.png",
+    imageDecorationsOnTop: {
+      center: "/decorations/senior_pets_group.png",
+      right: "/decorations/senior_dog_japanese.png",
+      left: "/decorations/senior_cat_irish.png"
+    },
+    rightRight: "/decorations/cherry_blossom_branch.png",
+    leftLeft: "/decorations/shamrock_chain.png",
+    poemBackgroundColor: { backgroundColor: "rgba(196, 120, 60, 0.55)" }
+  },
+  {
     id: "st-michael-picnic",
     name: "St. Michael's Ukrainian Catholic Church Picnic",
     imagePath: "/background_images/blue_gradient.png",
