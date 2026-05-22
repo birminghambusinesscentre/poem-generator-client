@@ -133,18 +133,11 @@ export default function Home() {
         }
       ];
 
-      // Call Groq API
-      const response = await axios.post('https://api.groq.com/openai/v1/chat/completions', {
-        model: "meta-llama/llama-4-scout-17b-16e-instruct",
-        messages
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer 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'
-        }
-      });
+      // Call our own server-side route, which talks to Groq using a key that
+      // stays on the server and is never exposed to the browser.
+      const response = await axios.post('/api/generate-poem', { messages });
 
-      const generatedPoem = response.data.choices[0].message.content.trim();
+      const generatedPoem = response.data.poem;
       setPoem(generatedPoem);
     } catch (error) {
       console.error('Error generating poem:', error);
