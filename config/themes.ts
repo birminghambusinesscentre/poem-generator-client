@@ -42,6 +42,37 @@ export const themes: Theme[] = [
     },
   },
   {
+    id: "doors-open-bell",
+    name: "Doors Open Toronto — Bell Telephone Building (100 Years)",
+    imagePath: "/background_images/doors_open_bell_bg.png",
+    textColor: "text-white doors-open-outline",
+    system:
+      "Your task is to write a warm, nostalgic poem based on the provided image, taken during " +
+      "Doors Open Toronto at the historic Bell Telephone Building on Birmingham Street — lovingly " +
+      "restored and celebrating its 100th anniversary, a full century of service from 1926 to 2026. " +
+      "This heritage open house invites the public to step through the open doors of a grand old " +
+      "telephone exchange and honour a hundred years of connection. Weave in gentle nods to the golden " +
+      "age of the telephone where it fits naturally: antique rotary dial phones, candlestick telephones, " +
+      "switchboard operators, polished brass and dark walnut, the soft ring of a bell, and voices once " +
+      "carried across humming copper wires connecting the city. Focus on heritage, craftsmanship, a " +
+      "century of human connection, community, and the quiet wonder of stepping back in time. Even if the " +
+      "image doesn't directly show telephones or the building, interpret it through the lens of vintage " +
+      "telephony, heritage, and the celebratory spirit of this centennial Doors Open. Make the poem about " +
+      "the person(s) in the image and their visit to this storied building.",
+    description: "Warm, nostalgic poems marking 100 years (1926–2026) of the Bell Telephone Building at Doors Open Toronto — heritage, vintage telephones, and a century of connection.",
+    imageDecoration1: "/decorations/Restored.png",
+    imageDecorationsOnTop: {
+      center: "/decorations/bell_building.png",
+      right: "/decorations/rotary_phone.png",
+      left: "/decorations/candlestick_phone.png",
+    },
+    poemBackgroundColor: {
+      backgroundColor: "rgba(60,42,26,0.90)",
+      border: "3px solid #B5894E",
+      boxShadow: "0 0 0 2px rgba(60,42,26,0.90), 0 12px 30px rgba(60,42,26,0.35)",
+    },
+  },
+  {
     id: "st-michael-picnic",
     name: "St. Michael's Ukrainian Catholic Church Picnic",
     imagePath: "/background_images/blue_gradient.png",
