@@ -2,16 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Doors Open theme: keep text + logo white but add a dark outline so they
-   stay readable against the light sepia background. Applied via the marker
-   class on the theme wrapper (see config/themes.ts -> doors-open-bell). */
+/* Doors Open theme: a soft dark halo keeps text readable against the light
+   sepia background without the heavy 4-directional stroke that made the
+   lettering look fat. Applied via the marker class on the theme wrapper
+   (see config/themes.ts -> doors-open-bell). */
 .doors-open-outline {
   text-shadow:
-    0 0 3px rgba(45, 30, 16, 0.9),
-    1px 1px 1px rgba(45, 30, 16, 0.95),
-    -1px -1px 1px rgba(45, 30, 16, 0.95),
-    1px -1px 1px rgba(45, 30, 16, 0.95),
-    -1px 1px 1px rgba(45, 30, 16, 0.95);
+    0 1px 3px rgba(45, 30, 16, 0.5),
+    0 0 2px rgba(45, 30, 16, 0.4);
 }
 
 .doors-open-outline #bir_logo {
