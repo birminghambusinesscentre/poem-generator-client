@@ -17,3 +17,67 @@
     drop-shadow(0 0 1px rgba(45, 30, 16, 0.95))
     drop-shadow(0 1px 2px rgba(45, 30, 16, 0.7));
 }
+
+/* Sofi's Party theme: the pastel pink castle background is light, so text
+   needs a soft rose-gold halo to stay readable. Applied via the marker
+   class on the theme wrapper (see config/themes.ts -> sofis-party). */
+.sofis-party-outline {
+  text-shadow:
+    0 1px 3px rgba(120, 50, 80, 0.55),
+    0 0 2px rgba(120, 50, 80, 0.45);
+}
+
+.sofis-party-outline #bir_logo {
+  filter:
+    drop-shadow(0 0 1px rgba(120, 50, 80, 0.95))
+    drop-shadow(0 1px 2px rgba(120, 50, 80, 0.7));
+}
+
+/* Revolution Kids Birthday theme: the deep purple/midnight backdrop with
+   bunting and confetti is already dark, so white text reads cleanly — but a
+   subtle indigo halo + soft gold sparkle on the logo deepens the magical
+   feel. Applied via the marker class on the theme wrapper
+   (see config/themes.ts -> revolution-kids-birthday). */
+.revolution-kids-outline {
+  text-shadow:
+    0 1px 3px rgba(18, 8, 40, 0.7),
+    0 0 6px rgba(242, 199, 68, 0.25);
+}
+
+.revolution-kids-outline #bir_logo {
+  filter:
+    drop-shadow(0 0 1px rgba(18, 8, 40, 0.9))
+    drop-shadow(0 0 4px rgba(242, 199, 68, 0.55));
+}
+
+/* Summer Backyard Party theme: the pastel sky/grass backdrop is light, so
+   white text gets a warm coral halo (matching the poem box) for contrast.
+   Applied via the marker class on the theme wrapper
+   (see config/themes.ts -> summer-backyard-party). */
+.summer-party-outline {
+  text-shadow:
+    0 1px 3px rgba(120, 50, 50, 0.7),
+    0 0 4px rgba(120, 50, 50, 0.45);
+}
+
+.summer-party-outline #bir_logo {
+  filter:
+    drop-shadow(0 0 1px rgba(120, 50, 50, 0.95))
+    drop-shadow(0 1px 2px rgba(120, 50, 50, 0.7));
+}
+
+/* Birmingham Garden Party theme: the painterly garden background is bright
+   and golden, so white text gets a deep forest-green halo (matching the poem
+   box) to stay readable on the lawn/sky highlights. Applied via the marker
+   class on the theme wrapper (see config/themes.ts -> birmingham-garden-party). */
+.garden-party-outline {
+  text-shadow:
+    0 1px 3px rgba(18, 40, 22, 0.7),
+    0 0 4px rgba(18, 40, 22, 0.45);
+}
+
+.garden-party-outline #bir_logo {
+  filter:
+    drop-shadow(0 0 1px rgba(18, 40, 22, 0.95))
+    drop-shadow(0 1px 2px rgba(18, 40, 22, 0.7));
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody } from "@heroui/modal";
 import { Card, CardBody } from "@heroui/card";
 import { Image } from "@heroui/image";
@@ -9,8 +9,19 @@ interface ThemeSelectorModalProps {
   onSelect: (theme: Theme) => void;
 }
 
+// Local-time YYYY-MM-DD so an event in Toronto reads as "today" while the
+// user is in Toronto, regardless of UTC offset.
+function todayIsoLocal(): string {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 export default function ThemeSelectorModal({ open, onSelect }: ThemeSelectorModalProps) {
   const [selected, setSelected] = useState<Theme | null>(null);
+  const today = useMemo(() => todayIsoLocal(), []);
 
   useEffect(() => {
     if (selected) {
@@ -55,11 +66,39 @@ export default function ThemeSelectorModal({ open, onSelect }: ThemeSelectorModa
                   <div className="relative h-32 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${theme.imagePath})` }}>
                     {/* Background overlay for better visibility */}
                     <div className="absolute inset-0 bg-black/10"></div>
-                    
+
+                    {/* Event date banner — only for themes tied to a calendar date */}
+                    {theme.eventDate && (
+                      <div className="absolute top-0 left-0 right-0 z-20 bg-white/90 backdrop-blur-sm px-2 py-1 text-center border-b border-black/10">
+                        <div className="text-[11px] font-bold tracking-wide text-rose-900 leading-tight">
+                          {theme.eventDate.display}
+                        </div>
+                        <div className="text-[9px] font-medium text-rose-900/80 leading-tight">
+                          {theme.eventDate.time}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* TODAY pill — shows when today's local date matches the event date */}
+                    {theme.eventDate?.iso === today && (
+                      <div className="absolute top-1 left-1 z-30 bg-red-600 text-white text-[9px] font-bold tracking-widest px-2 py-0.5 rounded-full shadow-md ring-2 ring-white">
+                        TODAY
+                      </div>
+                    )}
+
+                    {/* Day-of-month badge */}
+                    {theme.eventDate && (
+                      <div className="absolute bottom-1 right-1 z-20 w-10 h-10 bg-black/85 rounded-lg flex items-center justify-center shadow-lg">
+                        <span className="text-white text-lg font-bold leading-none">
+                          {theme.eventDate.day}
+                        </span>
+                      </div>
+                    )}
+
                     {/* Mini preview layout */}
-                    
+
                     {/* Top center decorations area */}
-                    <div className="absolute top-2 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                    <div className={`absolute ${theme.eventDate ? "top-10" : "top-2"} left-1/2 transform -translate-x-1/2 flex gap-2 z-10`}>
                       {theme.leftLeft && (
                         <img
                           src={theme.leftLeft}
@@ -97,8 +136,9 @@ export default function ThemeSelectorModal({ open, onSelect }: ThemeSelectorModa
                       )}
                     </div>
 
-                    {/* imageDecoration1 in bottom right */}
-                    {theme.imageDecoration1 && (
+                    {/* imageDecoration1 in bottom right — hidden when the day
+                        badge occupies that slot for dated events */}
+                    {theme.imageDecoration1 && !theme.eventDate && (
                       <div className="absolute bottom-2 right-2 z-10">
                         <img
                           src={theme.imageDecoration1}

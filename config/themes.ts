@@ -1,3 +1,10 @@
+export interface EventDate {
+  iso: string;       // "2026-05-31" — used for TODAY comparison
+  display: string;   // "SUNDAY, MAY 31" — banner top line
+  time: string;      // "2PM - 6PM" — banner second line
+  day: number;       // 31 — day-of-month badge
+}
+
 export interface Theme {
   id: string;
   name: string;
@@ -6,14 +13,115 @@ export interface Theme {
   system: string;
   description: string;
   // recommended cartoon transparent images -  SQUARE
-  imageDecoration1: string | null; 
+  imageDecoration1: string | null;
   imageDecorationsOnTop: { [key: string]: string | null } | null;
   rightRight?: string | null;
   leftLeft?: string | null;
   poemBackgroundColor: React.CSSProperties;
+  eventDate?: EventDate;
 }
 
 export const themes: Theme[] = [
+  {
+    id: "birmingham-garden-party",
+    name: "Birmingham Garden Party",
+    imagePath: "/background_images/garden_party_bg.png",
+    textColor: "text-white garden-party-outline",
+    system:
+      "Your task is to write a warm, sunlit poem based on the provided image, taken during a charming " +
+      "outdoor garden party. Picture white peaked tents fluttering with colorful bunting flags, lush " +
+      "summer gardens in full bloom, wooden lounge chairs on soft grass, pitchers of lemonade on side " +
+      "tables, and friends gathered under golden-hour light. Weave in gentle details where they fit: " +
+      "peonies and daisies, the soft rustle of leaves, laughter drifting across the lawn, the clink of " +
+      "glasses, paper pennants gently swaying, and the quiet magic of a long summer evening outdoors. " +
+      "Focus on community, friendship, blooming gardens, summer warmth, and the simple joy of gathering " +
+      "outside. Even if the image doesn't directly show a garden party, interpret it through the lens of " +
+      "a warm outdoor celebration. Make the poem about the person(s) in the image and their part in this " +
+      "lovely afternoon gathering.",
+    description: "Warm, sunlit poems celebrating an outdoor garden party — white tents, bunting, blooming gardens, golden-hour light, and good company on the lawn.",
+    imageDecoration1: "/decorations/garden_party_emblem.png",
+    imageDecorationsOnTop: {
+      center: "/decorations/garden_party_tent.png",
+      right: "/decorations/garden_party_lounge.png",
+      left: "/decorations/garden_party_flowers.png",
+    },
+    rightRight: "/decorations/garden_party_vines.png",
+    leftLeft: "/decorations/garden_party_bunting.png",
+    poemBackgroundColor: {
+      backgroundColor: "rgba(34, 70, 42, 0.88)",
+      border: "3px solid #E8D8A8",
+      boxShadow: "0 0 0 2px rgba(34,70,42,0.88), 0 12px 30px rgba(34,70,42,0.35)",
+    },
+  },
+  {
+    id: "revolution-kids-birthday",
+    name: "Revolution Kids Birthday Party",
+    imagePath: "/background_images/revolution_kids_bg.png",
+    textColor: "text-white revolution-kids-outline",
+    system:
+      "Your task is to write a fun, magical, and joyful poem based on the provided image, taken during the Revolution Kids Birthday Party — a magical kids' birthday celebration filled with wonder, laughter, and showmanship. " +
+      "The event features a young magician performing tricks: pulling fluffy white rabbits from sparkling top hats, fanning playing cards, waving a smoking magic wand, and releasing doves into the air. There are clusters of colorful balloons, a tall pink birthday cake with flickering candles, stacks of brightly wrapped gift boxes with ribbons, party hats, confetti, and bunting flags strung overhead. " +
+      "Weave in playful nods to magic and party joy where they fit naturally: top hats and bunny rabbits, twinkling stars and golden sparkles, the word 'abracadabra,' colorful balloons drifting up, candles glowing on cake, and the delighted gasps of children watching tricks unfold. " +
+      "Focus on wonder, surprise, childlike joy, friendship, the warm magic of celebrating a birthday together, and the sparkle of memories that feel like a spell that lasts. " +
+      "Even if the image doesn't directly show a magician or party, interpret it through the lens of magic, celebration, and enchanted birthday joy. " +
+      "Make the poem about the person(s) in the image and their place in this enchanted gathering.",
+    description: "Magical and joyful poems for the Revolution Kids Birthday Party — top hats, bunny rabbits, sparkling wands, balloons, cake, and childlike wonder.",
+    imageDecoration1: "/decorations/rev_kids_emblem.png",
+    imageDecorationsOnTop: {
+      center: "/decorations/magician_boy.png",
+      right: "/decorations/rev_kids_cake.png",
+      left: "/decorations/magic_hat_rabbit.png",
+    },
+    rightRight: "/decorations/rev_kids_gifts.png",
+    leftLeft: "/decorations/rev_kids_balloons.png",
+    poemBackgroundColor: {
+      backgroundColor: "rgba(48, 22, 84, 0.92)",
+      border: "3px solid #F2C744",
+      boxShadow: "0 0 0 2px rgba(48,22,84,0.92), 0 12px 30px rgba(48,22,84,0.45)",
+    },
+    eventDate: {
+      iso: "2026-06-07",
+      display: "SUNDAY, JUN 7",
+      time: "11:30AM - 3:30PM",
+      day: 7,
+    },
+  },
+  {
+    id: "summer-backyard-party",
+    name: "Summer Backyard Party",
+    imagePath: "/background_images/summer_party_bg.png",
+    textColor: "text-white summer-party-outline",
+    system:
+      "Your task is to write a joyful and festive poem based on the provided image, taken during " +
+      "a vibrant summer backyard party — a colourful, fun-filled gathering of friends and family. " +
+      "The party features a bouncy castle bouncing with laughter, a sizzling BBQ grill cooking up " +
+      "burgers and hot dogs, clusters of bright balloons floating in the breeze, confetti drifting " +
+      "through the air, and a picnic table loaded with summer treats on a red-and-white checkered " +
+      "cloth. Weave in gentle nods to party joy where they fit naturally: the laughter of children, " +
+      "the smoky scent of the grill, balloons swaying overhead, the warmth of a sunny day, and the " +
+      "simple magic of friends and family gathered together. Focus on community, friendship, joyful " +
+      "celebration, summer warmth, and the bright spirit of a perfect party day. Even if the image " +
+      "doesn't directly show a party, interpret it through the lens of festive summer celebration. " +
+      "Make the poem about the person(s) in the image and their joy at this happy gathering.",
+    description: "Joyful, festive poems celebrating summer backyard parties — bouncy castles, sizzling BBQs, colourful balloons, and the warm spirit of friends and family gathered together.",
+    imageDecoration1: "/decorations/party_celebrate_logo.png",
+    imageDecorationsOnTop: {
+      center: "/decorations/party_bouncy_castle.png",
+      right: "/decorations/party_bbq_grill.png",
+      left: "/decorations/party_balloons.png",
+    },
+    poemBackgroundColor: {
+      backgroundColor: "rgba(220, 75, 90, 0.88)",
+      border: "3px solid #FFC93C",
+      boxShadow: "0 0 0 2px rgba(220, 75, 90, 0.88), 0 12px 30px rgba(220, 75, 90, 0.35)",
+    },
+    eventDate: {
+      iso: "2026-06-06",
+      display: "SATURDAY, JUNE 6",
+      time: "10AM - 6PM",
+      day: 6,
+    },
+  },
   {
     id: "senior-paws-fundraiser",
     name: "Senior Paws Canada Charity Fundraiser",
@@ -39,6 +147,44 @@ export const themes: Theme[] = [
       backgroundColor: "rgba(31, 58, 31, 0.92)",
       border: "3px solid #C19A3F",
       boxShadow: "0 0 0 2px rgba(31,58,31,0.92), 0 12px 30px rgba(31,58,31,0.35)",
+    },
+  },
+  {
+    id: "sofis-party",
+    name: "Sofi's Party — A Fairy Tale Bridal Shower",
+    imagePath: "/background_images/sofis_party_bg.png",
+    textColor: "text-white sofis-party-outline",
+    system:
+      "Your task is to write a romantic, fairy-tale poem based on the provided image, taken at Sofi's " +
+      "Party — a princess-themed bridal shower celebrating the bride-to-be on Sunday, May 31, from 2 to " +
+      "6 PM. The day is styled like a storybook tea party: a pink castle in the distance, lush gardens " +
+      "of roses, tiered stands of macarons and rose-topped cupcakes, vintage porcelain teacups trimmed " +
+      "in gold, and the gentle motto \"A Fairy Tale Begins\". Weave in gentle nods to this enchanted " +
+      "world where it fits naturally: pink and cream roses, golden crowns, delicate teacups, sweet " +
+      "pastries, soft pastel skies, and the romance of new beginnings. Focus on love, joy, sisterhood, " +
+      "friendship, the bride's happiness, and the magic of celebrating someone before her wedding day. " +
+      "Even if the image doesn't directly show the party or the bride, interpret it through the lens " +
+      "of this fairy-tale celebration, with warmth, sweetness, and a touch of princess magic. Make the " +
+      "poem about the person(s) in the image and their part in this enchanted afternoon honouring Sofi.",
+    description: "Romantic, fairy-tale poems for Sofi's Party — a princess-themed bridal shower with pink castles, roses, golden teacups, and the magic of \"A Fairy Tale Begins\".",
+    imageDecoration1: "/decorations/sofis_party_emblem.png",
+    imageDecorationsOnTop: {
+      center: "/decorations/sofis_bride_teacup.png",
+      right: "/decorations/sofis_dessert_stand.png",
+      left: "/decorations/sofis_castle.png",
+    },
+    rightRight: "/decorations/sofis_teapot.png",
+    leftLeft: "/decorations/sofis_rose_bouquet.png",
+    poemBackgroundColor: {
+      backgroundColor: "rgba(120, 50, 80, 0.78)",
+      border: "3px solid #D4AF37",
+      boxShadow: "0 0 0 2px rgba(120,50,80,0.78), 0 12px 30px rgba(120,50,80,0.35)",
+    },
+    eventDate: {
+      iso: "2026-05-31",
+      display: "SUNDAY, MAY 31",
+      time: "2PM - 6PM",
+      day: 31,
     },
   },
   {
@@ -135,7 +281,7 @@ export const themes: Theme[] = [
   {
     id: "pink-gradient",
     name: "Lake Shore West Garden Tour",
-    imagePath: "/background_images/pink_gradient.png",
+    imagePath: "/background_images/lakeshore_garden_tour_bg.png",
     textColor: "text-black dark:text-white",
     system:
       "Your task is to write a poem based on provided image which will be taken outside during the Lake Shore West Garden Tour event at Bell Garden Courtyard. " +
@@ -149,8 +295,13 @@ export const themes: Theme[] = [
       right: "/decorations/pink_butterly.png",
       left: "/decorations/hummingbird.png"
     },
-    poemBackgroundColor: { backgroundColor: "rgba(128, 128, 128, 0.5)" }
-
+    poemBackgroundColor: { backgroundColor: "rgba(128, 128, 128, 0.5)" },
+    eventDate: {
+      iso: "2026-06-20",
+      display: "SATURDAY, JUN 20",
+      time: "10AM - 4PM",
+      day: 20,
+    },
   },
   {
     id: "girl-birthday",
@@ -197,6 +348,15 @@ export const themes: Theme[] = [
 
   }
 ];
+
+// Dated events surface first (sorted by date ascending); undated themes
+// keep their declaration order. This drives the order in the theme picker.
+themes.sort((a, b) => {
+  if (a.eventDate && b.eventDate) return a.eventDate.iso.localeCompare(b.eventDate.iso);
+  if (a.eventDate) return -1;
+  if (b.eventDate) return 1;
+  return 0;
+});
 
 // Set a default theme initially
 let currentTheme: Theme = themes[0];
