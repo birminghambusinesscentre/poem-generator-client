@@ -81,3 +81,20 @@
     drop-shadow(0 0 1px rgba(18, 40, 22, 0.95))
     drop-shadow(0 1px 2px rgba(18, 40, 22, 0.7));
 }
+
+/* Lake Shore West Garden Tour theme: the painterly courtyard background mixes
+   bright sky, lake water, and pink blooms, so white text gets a deep mossy
+   green halo to stay readable across the lighter and busier areas. Applied
+   via the marker class on the theme wrapper (see config/themes.ts ->
+   pink-gradient). */
+.lakeshore-garden-outline {
+  text-shadow:
+    0 1px 3px rgba(28, 50, 36, 0.7),
+    0 0 4px rgba(28, 50, 36, 0.45);
+}
+
+.lakeshore-garden-outline #bir_logo {
+  filter:
+    drop-shadow(0 0 1px rgba(28, 50, 36, 0.95))
+    drop-shadow(0 1px 2px rgba(28, 50, 36, 0.7));
+}

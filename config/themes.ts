@@ -282,7 +282,7 @@ export const themes: Theme[] = [
     id: "pink-gradient",
     name: "Lake Shore West Garden Tour",
     imagePath: "/background_images/lakeshore_garden_tour_bg.png",
-    textColor: "text-black dark:text-white",
+    textColor: "text-white lakeshore-garden-outline",
     system:
       "Your task is to write a poem based on provided image which will be taken outside during the Lake Shore West Garden Tour event at Bell Garden Courtyard. " +
       "The event spans multiple locations but this particular image is from the Bell Garden Courtyard location. " +
@@ -295,7 +295,11 @@ export const themes: Theme[] = [
       right: "/decorations/pink_butterly.png",
       left: "/decorations/hummingbird.png"
     },
-    poemBackgroundColor: { backgroundColor: "rgba(128, 128, 128, 0.5)" },
+    poemBackgroundColor: {
+      backgroundColor: "rgba(46, 76, 58, 0.88)",
+      border: "3px solid #F4C8D4",
+      boxShadow: "0 0 0 2px rgba(46,76,58,0.88), 0 12px 30px rgba(46,76,58,0.35)",
+    },
     eventDate: {
       iso: "2026-06-20",
       display: "SATURDAY, JUN 20",
