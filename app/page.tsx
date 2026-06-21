@@ -17,13 +17,26 @@ export default function Home() {
   const isDoorsOpen = currentTheme.id === "doors-open-bell";
   const isSofisParty = currentTheme.id === "sofis-party";
   const darkAccent = isDoorsOpen ? "text-[#5c4033]" : isSofisParty ? "text-[#6d2347]" : "";
+  const leftOfficeLine =
+    currentTheme.leftOfficeLine === undefined
+      ? "Office: +1 (416) 252-7731"
+      : currentTheme.leftOfficeLine;
   const rightWebsite = currentTheme.rightWebsite ?? "birminghambusinesscentre.com";
   const rightContactLine =
     currentTheme.rightContactLine === undefined
       ? "Christina Cell: +1 (416) 605-1091"
       : currentTheme.rightContactLine;
+  const programCredit =
+    currentTheme.programCredit === undefined
+      ? "Program made by Alexandre Fomchenko (https://fomchenko.dev)"
+      : currentTheme.programCredit;
+  const poemHeading = currentTheme.poemHeading ?? "A Special poem just for you!";
+  const poemEventTitle = currentTheme.poemEventTitle ?? null;
+  const poemFooter = currentTheme.poemFooter ?? null;
   const [image, setImage] = useState<string | null>(null);
   const [poem, setPoem] = useState("");
+  const displayedPoem = poem || currentTheme.featuredPoem || "";
+  const showPoemPanel = Boolean(displayedPoem || poemFooter);
   const [loading, setLoading] = useState(false);
   const [showCamera, setShowCamera] = useState(true);
   const [stream, setStream] = useState<MediaStream | null>(null);
@@ -294,7 +307,9 @@ export default function Home() {
             <div className="text-2xl font-semibold leading-tight">Thank you for visiting us!</div>
             <div className="text-lg leading-tight">80 Birmingham Street</div>
             <div className="text-lg leading-tight">Historic Bell Building</div>
-            <div className="text-lg leading-tight">Office: +1 (416) 252-7731</div>
+            {leftOfficeLine && (
+              <div className="text-lg leading-tight">{leftOfficeLine}</div>
+            )}
           </div>
 
         </div>
@@ -415,19 +430,38 @@ export default function Home() {
 
             {/* Right side - Poem Display */}
             <div className="flex-1">
-              {poem ? (
+              {showPoemPanel ? (
                 <div className="space-y-4">
-                  <div className={clsx("space-y-2", darkAccent)}>
-                    <h2 className="text-3xl font-semibold">A Special poem just for you!</h2>
+                  <div
+                    className={clsx("space-y-2", darkAccent)}
+                    style={{ textShadow: "0 2px 4px rgba(0,0,0,0.75)" }}
+                  >
+                    <h2 className="text-3xl font-semibold">{poemHeading}</h2>
+                    {poemEventTitle && (
+                      <p className="text-2xl font-bold text-[#f7d26b]">
+                        {poemEventTitle}
+                      </p>
+                    )}
                     <p>An interactive AI Poetry exhibit</p>
-                    <p className="text-sm">Program made by Alexandre Fomchenko (https://fomchenko.dev)</p>
+                    {programCredit && (
+                      <p className="text-sm">{programCredit}</p>
+                    )}
                   </div>
                   <div 
                     className="backdrop-blur-sm rounded-2xl text-center p-8 shadow-[0_0_25px_rgba(59,130,246,0.1)]"
                     style={currentTheme.poemBackgroundColor}
                   >
-                    <p className="whitespace-pre-line text-lg text-center leading-relaxed text-slate-100 font-serif">{poem}</p>
+                    <p className="whitespace-pre-line text-lg text-center leading-relaxed text-slate-100 font-serif">
+                      {displayedPoem || "Your poem will appear here after the photo is taken."}
+                    </p>
                   </div>
+                  {poemFooter && (
+                    <div className="rounded-2xl border border-[#d8af45]/75 bg-black/70 p-5 text-center shadow-[0_8px_22px_rgba(0,0,0,0.32)]">
+                      <p className="whitespace-pre-line text-lg leading-relaxed text-[#fff0bd] font-serif">
+                        {poemFooter}
+                      </p>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="flex items-center justify-center h-full">
