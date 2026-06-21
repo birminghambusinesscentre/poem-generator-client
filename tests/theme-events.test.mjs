@@ -37,7 +37,8 @@ test("Aman's June 21 graduation party uses a custom multi-asset theme", () => {
   assert.match(themesSource, /id:\s*"aman-graduation-party"/);
   assert.match(amanThemeSource, /name:\s*"Dr Aman Pal's Graduation Party"/);
   assert.match(amanThemeSource, /Dr Aman Pal/);
-  assert.match(amanThemeSource, /poemHeading:\s*"A Special poem for Dr Aman Pal!"/);
+  assert.match(amanThemeSource, /poemHeading:\s*"A Special poem for you!"/);
+  assert.match(amanThemeSource, /poemEventTitle:\s*"Dr Aman Pal Graduation Party"/);
   assert.match(amanThemeSource, /imagePath:\s*"\/background_images\/aman_graduation_black_gold_garden_bg\.png"/);
   assert.match(amanThemeSource, /adult Bell Garden Courtyard celebration/i);
   assert.match(amanThemeSource, /black-and-gold balloon/i);
@@ -54,7 +55,8 @@ test("Aman's June 21 graduation party uses a custom multi-asset theme", () => {
   assert.match(amanThemeSource, /answering our call/i);
   assert.match(amanThemeSource, /presence made this day complete/i);
   assert.match(amanThemeSource, /cherished and sweet/i);
-  assert.match(amanThemeSource, /featuredPoem:\s*"/);
+  assert.doesNotMatch(amanThemeSource, /featuredPoem:\s*"/);
+  assert.match(amanThemeSource, /poemFooter:\s*"/);
   assert.match(amanThemeSource, /With grateful hearts, we thank you all,/);
   assert.match(amanThemeSource, /For joining us and answering our call\./);
   assert.match(amanThemeSource, /Your presence made this day complete,/);
@@ -90,6 +92,9 @@ test("Aman's June 21 graduation party uses a custom multi-asset theme", () => {
   assert.match(appSource, /rightWebsite\s*=\s*currentTheme\.rightWebsite/);
   assert.match(appSource, /rightContactLine\s*=\s*currentTheme\.rightContactLine/);
   assert.match(appSource, /poemHeading\s*=\s*currentTheme\.poemHeading/);
+  assert.match(appSource, /poemEventTitle\s*=\s*currentTheme\.poemEventTitle/);
+  assert.match(appSource, /poemFooter\s*=\s*currentTheme\.poemFooter/);
+  assert.match(appSource, /showPoemPanel\s*=\s*Boolean\(displayedPoem\s*\|\|\s*poemFooter\)/);
   assert.match(appSource, /displayedPoem\s*=\s*poem\s*\|\|\s*currentTheme\.featuredPoem/);
   assert.match(appSource, /programCredit\s*=\s*currentTheme\.programCredit/);
   assert.match(appSource, /programCredit\s*&&/);

@@ -23,6 +23,8 @@ export interface Theme {
   programCredit?: string | null;
   featuredPoem?: string;
   poemHeading?: string;
+  poemEventTitle?: string;
+  poemFooter?: string;
   poemBackgroundColor: React.CSSProperties;
   eventDate?: EventDate;
 }
@@ -340,12 +342,13 @@ export const themes: Theme[] = [
     rightWebsite: "BellGardenCourtyard.ca",
     rightContactLine: null,
     programCredit: null,
-    featuredPoem:
+    poemHeading: "A Special poem for you!",
+    poemEventTitle: "Dr Aman Pal Graduation Party",
+    poemFooter:
       "With grateful hearts, we thank you all,\n" +
       "For joining us and answering our call.\n" +
       "Your presence made this day complete,\n" +
       "A memory forever cherished and sweet.",
-    poemHeading: "A Special poem for Dr Aman Pal!",
     poemBackgroundColor: {
       backgroundColor: "rgba(22, 22, 20, 0.9)",
       border: "3px solid #D8AF45",

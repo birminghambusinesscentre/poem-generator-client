@@ -31,9 +31,12 @@ export default function Home() {
       ? "Program made by Alexandre Fomchenko (https://fomchenko.dev)"
       : currentTheme.programCredit;
   const poemHeading = currentTheme.poemHeading ?? "A Special poem just for you!";
+  const poemEventTitle = currentTheme.poemEventTitle ?? null;
+  const poemFooter = currentTheme.poemFooter ?? null;
   const [image, setImage] = useState<string | null>(null);
   const [poem, setPoem] = useState("");
   const displayedPoem = poem || currentTheme.featuredPoem || "";
+  const showPoemPanel = Boolean(displayedPoem || poemFooter);
   const [loading, setLoading] = useState(false);
   const [showCamera, setShowCamera] = useState(true);
   const [stream, setStream] = useState<MediaStream | null>(null);
@@ -427,10 +430,18 @@ export default function Home() {
 
             {/* Right side - Poem Display */}
             <div className="flex-1">
-              {displayedPoem ? (
+              {showPoemPanel ? (
                 <div className="space-y-4">
-                  <div className={clsx("space-y-2", darkAccent)}>
+                  <div
+                    className={clsx("space-y-2", darkAccent)}
+                    style={{ textShadow: "0 2px 4px rgba(0,0,0,0.75)" }}
+                  >
                     <h2 className="text-3xl font-semibold">{poemHeading}</h2>
+                    {poemEventTitle && (
+                      <p className="text-2xl font-bold text-[#f7d26b]">
+                        {poemEventTitle}
+                      </p>
+                    )}
                     <p>An interactive AI Poetry exhibit</p>
                     {programCredit && (
                       <p className="text-sm">{programCredit}</p>
@@ -441,9 +452,16 @@ export default function Home() {
                     style={currentTheme.poemBackgroundColor}
                   >
                     <p className="whitespace-pre-line text-lg text-center leading-relaxed text-slate-100 font-serif">
-                      {displayedPoem}
+                      {displayedPoem || "Your poem will appear here after the photo is taken."}
                     </p>
                   </div>
+                  {poemFooter && (
+                    <div className="rounded-2xl border border-[#d8af45]/75 bg-black/70 p-5 text-center shadow-[0_8px_22px_rgba(0,0,0,0.32)]">
+                      <p className="whitespace-pre-line text-lg leading-relaxed text-[#fff0bd] font-serif">
+                        {poemFooter}
+                      </p>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="flex items-center justify-center h-full">
