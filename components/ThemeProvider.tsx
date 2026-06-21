@@ -28,7 +28,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   return (
     <ThemeContext.Provider value={{ currentTheme, setCurrentTheme }}>
       <div 
-        className={`min-h-screen relative ${currentTheme.textColor}`}
+        className={`min-h-screen overflow-x-hidden relative ${currentTheme.textColor}`}
         style={{
           backgroundImage: `url(${currentTheme.imagePath})`,
           backgroundSize: 'cover',
@@ -43,4 +43,4 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       </div>
     </ThemeContext.Provider>
   );
-}; 
+};

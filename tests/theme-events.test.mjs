@@ -6,6 +6,10 @@ import { test } from "node:test";
 const projectRoot = process.cwd();
 const themesSource = readFileSync(join(projectRoot, "config", "themes.ts"), "utf8");
 const appSource = readFileSync(join(projectRoot, "app", "page.tsx"), "utf8");
+const themeProviderSource = readFileSync(
+  join(projectRoot, "components", "ThemeProvider.tsx"),
+  "utf8",
+);
 const amanThemeStart = themesSource.indexOf('id: "aman-graduation-party"');
 const amanThemeEnd = themesSource.indexOf('id: "girl-birthday"', amanThemeStart);
 const amanThemeSource = themesSource.slice(amanThemeStart, amanThemeEnd);
@@ -117,4 +121,23 @@ test("Aman's June 21 graduation party uses a custom multi-asset theme", () => {
   for (const assetPath of amanAssetPaths) {
     assert.ok(existsSync(assetPath), `${assetPath} should exist`);
   }
+});
+
+test("captured Aman layout avoids compact-screen header and decoration overlap", () => {
+  assert.doesNotMatch(
+    appSource,
+    /fixed\s+top-4\s+left-4/,
+    "The top header should stay in document flow instead of overlaying captured photos and poem titles.",
+  );
+  assert.doesNotMatch(
+    appSource,
+    /left:\s*'calc\(50%\s*[+-]/,
+    "Top decorations should use a responsive row instead of absolute pixel offsets.",
+  );
+  assert.match(appSource, /data-testid="app-header"/);
+  assert.match(appSource, /data-testid="top-decorations"/);
+  assert.match(appSource, /grid\s+grid-cols-1\s+lg:grid-cols-2/);
+  assert.match(appSource, /h-\[min\(400px,44vh\)\]/);
+  assert.match(appSource, /max-w-\[1180px\]/);
+  assert.match(themeProviderSource, /overflow-x-hidden/);
 });
