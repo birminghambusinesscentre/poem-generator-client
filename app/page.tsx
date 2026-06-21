@@ -17,6 +17,11 @@ export default function Home() {
   const isDoorsOpen = currentTheme.id === "doors-open-bell";
   const isSofisParty = currentTheme.id === "sofis-party";
   const darkAccent = isDoorsOpen ? "text-[#5c4033]" : isSofisParty ? "text-[#6d2347]" : "";
+  const rightWebsite = currentTheme.rightWebsite ?? "birminghambusinesscentre.com";
+  const rightContactLine =
+    currentTheme.rightContactLine === undefined
+      ? "Christina Cell: +1 (416) 605-1091"
+      : currentTheme.rightContactLine;
   const [image, setImage] = useState<string | null>(null);
   const [poem, setPoem] = useState("");
   const [loading, setLoading] = useState(false);
@@ -365,8 +370,8 @@ export default function Home() {
         <div className="text-right pr-8 space-y-1">
           <div className="text-2xl font-semibold leading-tight">Birmingham Business Centre</div>
           <div className="text-2xl font-semibold leading-tight">Bell Garden Courtyard</div>
-          <div className="text-lg leading-tight">birminghambusinesscentre.com</div>
-          <div className="text-lg leading-tight">Christina Cell: +1 (416) 605-1091</div>
+          <div className="text-lg leading-tight">{rightWebsite}</div>
+          {rightContactLine && <div className="text-lg leading-tight">{rightContactLine}</div>}
         </div>
       </div>
 

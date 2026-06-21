@@ -17,6 +17,8 @@ export interface Theme {
   imageDecorationsOnTop: { [key: string]: string | null } | null;
   rightRight?: string | null;
   leftLeft?: string | null;
+  rightWebsite?: string;
+  rightContactLine?: string | null;
   poemBackgroundColor: React.CSSProperties;
   eventDate?: EventDate;
 }
@@ -310,29 +312,32 @@ export const themes: Theme[] = [
   {
     id: "aman-graduation-party",
     name: "Aman's Graduation Party",
-    imagePath: "/background_images/aman_graduation_indian_garden_bg.png",
+    imagePath: "/background_images/aman_graduation_bell_courtyard_summer_bg.png",
     textColor: "text-white aman-graduation-outline",
     system:
       "Your task is to write a proud, joyful, and heartfelt poem based on the provided image, taken during Aman's Graduation Party on Sunday, June 21, 2026, from 6:30 PM to 10:30 PM. " +
-      "Frame the celebration as an adult and refined Indian-inspired garden moment on the first day of summer, the longest day of the year, with Aman graduating and a bright future ahead. " +
-      "This celebration honors Aman becoming Dr. Aman, surrounded by family, friends, congratulations, a graduation cap, diploma, realistic flowers and mature trees, marigolds, jasmine, and warm gold accents under the summer sun. " +
-      "Weave in gentle graduation and garden details where they fit naturally: the cap and tassel, a rolled diploma, cheers from loved ones, proud smiles, marigolds, jasmine, teal and gold details, warm June sunlight, and the beginning of a meaningful medical journey. " +
+      "Frame the celebration as an adult Bell Garden Courtyard celebration on the first day of summer, the longest day of the year, with Aman graduating and a bright future ahead. " +
+      "This celebration honors Aman becoming Dr. Aman, surrounded by family, friends, congratulations, a graduation cap, diploma, realistic hibiscus flowers and big shady trees, a white two-peak event tent, hand-laid courtyard stone, and a shining summer sun. " +
+      "Weave in gentle graduation and courtyard details where they fit naturally: the cap and tassel, a rolled diploma, cheers from loved ones, proud smiles, hibiscus blooms, mature green trees, warm June sunlight, and the beginning of a meaningful medical journey. " +
+      "Keep the tone thankful and warm, echoing the spirit of: with grateful hearts, we thank you all; thank you for joining us and answering our call; your presence made this day complete; a memory forever cherished and sweet. " +
       "Focus on achievement, gratitude, family pride, perseverance, new beginnings, and the joy of celebrating a milestone earned with care and dedication. " +
       "Even if the image doesn't directly show graduation details, interpret it through the lens of Aman's graduation celebration. " +
       "Make the poem about the person(s) in the image and their place in this proud evening gathering.",
-    description: "Proud, joyful poems for Aman's Graduation Party — an adult Indian-inspired summer garden, marigolds, jasmine, caps, diplomas, family pride, and warm congratulations for Dr. Aman.",
-    imageDecoration1: "/decorations/aman_graduation_indian_emblem.png",
+    description: "Proud, joyful poems for Aman's Graduation Party — Bell Garden Courtyard, hibiscus flowers, shady trees, a white event tent, caps, diplomas, family pride, and warm congratulations for Dr. Aman.",
+    imageDecoration1: "/decorations/aman_graduation_hibiscus_emblem.png",
     imageDecorationsOnTop: {
-      center: "/decorations/aman_graduation_doctor.png",
-      right: "/decorations/aman_graduation_stethoscope.png",
-      left: "/decorations/aman_graduation_cap_diploma.png",
+      center: "/decorations/aman_graduation_adult_cap_stethoscope.png",
+      right: null,
+      left: null,
     },
-    rightRight: "/decorations/aman_graduation_marigold_lanterns.png",
-    leftLeft: "/decorations/aman_graduation_jasmine_garland.png",
+    rightRight: "/decorations/aman_graduation_hibiscus_branch.png",
+    leftLeft: "/decorations/aman_graduation_summer_sun.png",
+    rightWebsite: "BellGardenCourtyard.ca",
+    rightContactLine: null,
     poemBackgroundColor: {
-      backgroundColor: "rgba(27, 82, 78, 0.86)",
-      border: "3px solid #E5B84A",
-      boxShadow: "0 0 0 2px rgba(27,82,78,0.70), 0 10px 24px rgba(68,42,18,0.22)",
+      backgroundColor: "rgba(35, 78, 47, 0.88)",
+      border: "3px solid #F2D27A",
+      boxShadow: "0 0 0 2px rgba(35,78,47,0.72), 0 10px 24px rgba(47,62,36,0.26)",
     },
     eventDate: {
       iso: "2026-06-21",
