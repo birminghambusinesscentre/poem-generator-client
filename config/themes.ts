@@ -249,7 +249,7 @@ export const themes: Theme[] = [
       + "Focus on joy, fun, friendship, and all the wonderful moments that make a birthday special. "
       + "The image is on place of birthday celebration, the person on image is not directly Isabella that celebrates birthday, it can be just a friend or a family member. Don't mention if it is the birthday girl or not because you can not tell. "
       + "The name of who's birthday is Isabella."
-      + "Even if the image doesn't directly show a birthday party, interpret it through the lens of birthday celebration and happiness." 
+      + "Even if the image doesn't directly show a birthday party, interpret it through the lens of birthday celebration and happiness."
       + " Make poem be about the person in the image.",
     description: "Joyful poems celebrating Isabella's special 8th birthday moments.",
     imageDecoration1: "/decorations/isabella.png",
@@ -308,6 +308,39 @@ export const themes: Theme[] = [
     },
   },
   {
+    id: "aman-graduation-party",
+    name: "Aman's Graduation Party",
+    imagePath: "/background_images/aman_graduation_bg.png",
+    textColor: "text-white aman-graduation-outline",
+    system:
+      "Your task is to write a proud, joyful, and heartfelt poem based on the provided image, taken during Aman's Graduation Party on Sunday, June 21, 2026, from 6:30 PM to 10:30 PM. " +
+      "This celebration honors Aman becoming Dr. Aman, surrounded by family, friends, congratulations, bright balloons, a graduation cap, diploma, and a hopeful future ahead. " +
+      "Weave in gentle graduation details where they fit naturally: the cap and tassel, a rolled diploma, cheers from loved ones, blue and teal balloons, proud smiles, and the beginning of a meaningful medical journey. " +
+      "Focus on achievement, gratitude, family pride, perseverance, new beginnings, and the joy of celebrating a milestone earned with care and dedication. " +
+      "Even if the image doesn't directly show graduation details, interpret it through the lens of Aman's graduation celebration. " +
+      "Make the poem about the person(s) in the image and their place in this proud evening gathering.",
+    description: "Proud, joyful poems for Aman's Graduation Party — caps, diplomas, balloons, family pride, and warm congratulations for Dr. Aman.",
+    imageDecoration1: "/decorations/aman_graduation_emblem.png",
+    imageDecorationsOnTop: {
+      center: "/decorations/aman_graduation_doctor.png",
+      right: "/decorations/aman_graduation_stethoscope.png",
+      left: "/decorations/aman_graduation_cap_diploma.png",
+    },
+    rightRight: "/decorations/aman_graduation_balloons.png",
+    leftLeft: "/decorations/aman_graduation_confetti.png",
+    poemBackgroundColor: {
+      backgroundColor: "rgba(8, 35, 76, 0.9)",
+      border: "3px solid #73C7D5",
+      boxShadow: "0 0 0 2px rgba(8,35,76,0.9), 0 12px 30px rgba(8,35,76,0.35)",
+    },
+    eventDate: {
+      iso: "2026-06-21",
+      display: "SUNDAY, JUNE 21",
+      time: "6:30PM - 10:30PM",
+      day: 21,
+    },
+  },
+  {
     id: "girl-birthday",
     name: "Girl Birthday Celebration",
     imagePath: "/background_images/pink_gradient.png",
@@ -317,7 +350,7 @@ export const themes: Theme[] = [
       + "Focus on joy, fun, friendship, and all the wonderful moments that make a birthday special. "
       + "The image is on place of birthday celebration, the person on image is not directly girl that celeebrates birthday, it can be just a friend or a family member. Don't mention if it is the birthday girl or not because you can not tell. "
       + "The name of who's birthday is Girl."
-      + "Even if the image doesn't directly show a birthday party, interpret it through the lens of birthday celebration and happiness." 
+      + "Even if the image doesn't directly show a birthday party, interpret it through the lens of birthday celebration and happiness."
       + " Make poem be about the person in the image.",
     description: "Joyful poems celebrating special birthday moments for girls.",
     imageDecoration1: "/decorations/girl_birthday.png",
@@ -338,7 +371,7 @@ export const themes: Theme[] = [
       + "Focus on joy, blessing, family, and all the wonderful moments that make a baptism special. "
       + "The image is on place of baptism celebration, the person on image is not directly the girl being baptized, it can be just a friend or a family member. Don't mention if it is the baptized girl or not because you can not tell. "
       + "The name of who's baptism is Sophia."
-      + "Even if the image doesn't directly show a baptism party, interpret it through the lens of baptism celebration and happiness." 
+      + "Even if the image doesn't directly show a baptism party, interpret it through the lens of baptism celebration and happiness."
       + " Make poem be about the person in the image.",
     description: "Joyful poems celebrating special baptism moments for girls.",
 
