@@ -310,16 +310,17 @@ export const themes: Theme[] = [
   {
     id: "aman-graduation-party",
     name: "Aman's Graduation Party",
-    imagePath: "/background_images/aman_graduation_bg.png",
+    imagePath: "/background_images/aman_graduation_summer_garden_bg.png",
     textColor: "text-white aman-graduation-outline",
     system:
       "Your task is to write a proud, joyful, and heartfelt poem based on the provided image, taken during Aman's Graduation Party on Sunday, June 21, 2026, from 6:30 PM to 10:30 PM. " +
-      "This celebration honors Aman becoming Dr. Aman, surrounded by family, friends, congratulations, bright balloons, a graduation cap, diploma, and a hopeful future ahead. " +
-      "Weave in gentle graduation details where they fit naturally: the cap and tassel, a rolled diploma, cheers from loved ones, blue and teal balloons, proud smiles, and the beginning of a meaningful medical journey. " +
+      "Frame the celebration as a bright and cheerful summer garden moment on the first day of summer, with Aman graduating and a bright future ahead. " +
+      "This celebration honors Aman becoming Dr. Aman, surrounded by family, friends, congratulations, bright balloons, a graduation cap, diploma, blooming flowers, sunlit greenery, and a hopeful future ahead. " +
+      "Weave in gentle graduation and garden details where they fit naturally: the cap and tassel, a rolled diploma, cheers from loved ones, blue and teal balloons, proud smiles, fresh flowers, warm June sunlight, and the beginning of a meaningful medical journey. " +
       "Focus on achievement, gratitude, family pride, perseverance, new beginnings, and the joy of celebrating a milestone earned with care and dedication. " +
       "Even if the image doesn't directly show graduation details, interpret it through the lens of Aman's graduation celebration. " +
       "Make the poem about the person(s) in the image and their place in this proud evening gathering.",
-    description: "Proud, joyful poems for Aman's Graduation Party — caps, diplomas, balloons, family pride, and warm congratulations for Dr. Aman.",
+    description: "Proud, joyful poems for Aman's Graduation Party — a bright summer garden, caps, diplomas, balloons, family pride, and warm congratulations for Dr. Aman.",
     imageDecoration1: "/decorations/aman_graduation_emblem.png",
     imageDecorationsOnTop: {
       center: "/decorations/aman_graduation_doctor.png",
@@ -329,9 +330,9 @@ export const themes: Theme[] = [
     rightRight: "/decorations/aman_graduation_balloons.png",
     leftLeft: "/decorations/aman_graduation_confetti.png",
     poemBackgroundColor: {
-      backgroundColor: "rgba(8, 35, 76, 0.9)",
-      border: "3px solid #73C7D5",
-      boxShadow: "0 0 0 2px rgba(8,35,76,0.9), 0 12px 30px rgba(8,35,76,0.35)",
+      backgroundColor: "rgba(24, 112, 126, 0.84)",
+      border: "3px solid #F7E889",
+      boxShadow: "0 0 0 2px rgba(24,112,126,0.72), 0 10px 24px rgba(24,112,126,0.24)",
     },
     eventDate: {
       iso: "2026-06-21",
