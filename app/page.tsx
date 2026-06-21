@@ -17,13 +17,23 @@ export default function Home() {
   const isDoorsOpen = currentTheme.id === "doors-open-bell";
   const isSofisParty = currentTheme.id === "sofis-party";
   const darkAccent = isDoorsOpen ? "text-[#5c4033]" : isSofisParty ? "text-[#6d2347]" : "";
+  const leftOfficeLine =
+    currentTheme.leftOfficeLine === undefined
+      ? "Office: +1 (416) 252-7731"
+      : currentTheme.leftOfficeLine;
   const rightWebsite = currentTheme.rightWebsite ?? "birminghambusinesscentre.com";
   const rightContactLine =
     currentTheme.rightContactLine === undefined
       ? "Christina Cell: +1 (416) 605-1091"
       : currentTheme.rightContactLine;
+  const programCredit =
+    currentTheme.programCredit === undefined
+      ? "Program made by Alexandre Fomchenko (https://fomchenko.dev)"
+      : currentTheme.programCredit;
+  const poemHeading = currentTheme.poemHeading ?? "A Special poem just for you!";
   const [image, setImage] = useState<string | null>(null);
   const [poem, setPoem] = useState("");
+  const displayedPoem = poem || currentTheme.featuredPoem || "";
   const [loading, setLoading] = useState(false);
   const [showCamera, setShowCamera] = useState(true);
   const [stream, setStream] = useState<MediaStream | null>(null);
@@ -294,7 +304,9 @@ export default function Home() {
             <div className="text-2xl font-semibold leading-tight">Thank you for visiting us!</div>
             <div className="text-lg leading-tight">80 Birmingham Street</div>
             <div className="text-lg leading-tight">Historic Bell Building</div>
-            <div className="text-lg leading-tight">Office: +1 (416) 252-7731</div>
+            {leftOfficeLine && (
+              <div className="text-lg leading-tight">{leftOfficeLine}</div>
+            )}
           </div>
 
         </div>
@@ -415,18 +427,22 @@ export default function Home() {
 
             {/* Right side - Poem Display */}
             <div className="flex-1">
-              {poem ? (
+              {displayedPoem ? (
                 <div className="space-y-4">
                   <div className={clsx("space-y-2", darkAccent)}>
-                    <h2 className="text-3xl font-semibold">A Special poem just for you!</h2>
+                    <h2 className="text-3xl font-semibold">{poemHeading}</h2>
                     <p>An interactive AI Poetry exhibit</p>
-                    <p className="text-sm">Program made by Alexandre Fomchenko (https://fomchenko.dev)</p>
+                    {programCredit && (
+                      <p className="text-sm">{programCredit}</p>
+                    )}
                   </div>
                   <div 
                     className="backdrop-blur-sm rounded-2xl text-center p-8 shadow-[0_0_25px_rgba(59,130,246,0.1)]"
                     style={currentTheme.poemBackgroundColor}
                   >
-                    <p className="whitespace-pre-line text-lg text-center leading-relaxed text-slate-100 font-serif">{poem}</p>
+                    <p className="whitespace-pre-line text-lg text-center leading-relaxed text-slate-100 font-serif">
+                      {displayedPoem}
+                    </p>
                   </div>
                 </div>
               ) : (
