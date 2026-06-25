@@ -17,14 +17,6 @@ export interface Theme {
   imageDecorationsOnTop: { [key: string]: string | null } | null;
   rightRight?: string | null;
   leftLeft?: string | null;
-  leftOfficeLine?: string | null;
-  rightWebsite?: string;
-  rightContactLine?: string | null;
-  programCredit?: string | null;
-  featuredPoem?: string;
-  poemHeading?: string;
-  poemEventTitle?: string;
-  poemFooter?: string;
   poemBackgroundColor: React.CSSProperties;
   eventDate?: EventDate;
 }
@@ -317,42 +309,29 @@ export const themes: Theme[] = [
   },
   {
     id: "aman-graduation-party",
-    name: "Dr Aman Pal's Graduation Party",
-    imagePath: "/background_images/aman_graduation_black_gold_garden_bg.png",
+    name: "Aman's Graduation Party",
+    imagePath: "/background_images/aman_graduation_bg.png",
     textColor: "text-white aman-graduation-outline",
     system:
-      "Your task is to write a proud, joyful, and heartfelt poem based on the provided image, taken during Dr Aman Pal's Graduation Party on Sunday, June 21, 2026, from 6:30 PM to 10:30 PM. " +
-      "Frame the celebration as an adult Bell Garden Courtyard celebration on the first day of summer, the longest day of the year, with Aman graduating and a bright future ahead. Use a garden-only setting with no tables, dining chairs, or reception furniture. " +
-      "This celebration honors Aman becoming Dr Aman Pal, surrounded by family, friends, congratulations, a graduation cap, diploma, realistic hibiscus flowers and big shady trees, hand-laid courtyard stone, a shining summer sun, and elegant black-and-gold balloon details. " +
-      "Weave in gentle graduation and courtyard details where they fit naturally: the cap and tassel, a rolled diploma, cheers from loved ones, proud smiles, hibiscus blooms, mature green trees, warm June sunlight, gold and black balloon accents, and the beginning of a meaningful medical journey. " +
-      "Keep the tone thankful and warm, echoing the spirit of: with grateful hearts, we thank you all; thank you for joining us and answering our call; your presence made this day complete; a memory forever cherished and sweet. " +
+      "Your task is to write a proud, joyful, and heartfelt poem based on the provided image, taken during Aman's Graduation Party on Sunday, June 21, 2026, from 6:30 PM to 10:30 PM. " +
+      "This celebration honors Aman becoming Dr. Aman, surrounded by family, friends, congratulations, bright balloons, a graduation cap, diploma, and a hopeful future ahead. " +
+      "Weave in gentle graduation details where they fit naturally: the cap and tassel, a rolled diploma, cheers from loved ones, blue and teal balloons, proud smiles, and the beginning of a meaningful medical journey. " +
       "Focus on achievement, gratitude, family pride, perseverance, new beginnings, and the joy of celebrating a milestone earned with care and dedication. " +
-      "Even if the image doesn't directly show graduation details, interpret it through the lens of Dr Aman Pal's graduation celebration. " +
+      "Even if the image doesn't directly show graduation details, interpret it through the lens of Aman's graduation celebration. " +
       "Make the poem about the person(s) in the image and their place in this proud evening gathering.",
-    description: "Proud, joyful poems for Dr Aman Pal's Graduation Party - Bell Garden Courtyard, hibiscus flowers, shady trees, black-and-gold balloons, caps, diplomas, family pride, and warm congratulations for Dr Aman Pal.",
-    imageDecoration1: "/decorations/aman_graduation_hibiscus_emblem.png",
+    description: "Proud, joyful poems for Aman's Graduation Party — caps, diplomas, balloons, family pride, and warm congratulations for Dr. Aman.",
+    imageDecoration1: "/decorations/aman_graduation_emblem.png",
     imageDecorationsOnTop: {
-      center: "/decorations/aman_graduation_adult_cap_stethoscope.png",
-      right: "/decorations/aman_graduation_dr_aman_pal_cartoon.png",
-      left: null,
+      center: "/decorations/aman_graduation_doctor.png",
+      right: "/decorations/aman_graduation_stethoscope.png",
+      left: "/decorations/aman_graduation_cap_diploma.png",
     },
-    rightRight: "/decorations/aman_graduation_hibiscus_branch.png",
-    leftLeft: "/decorations/aman_graduation_black_gold_balloons.png",
-    leftOfficeLine: null,
-    rightWebsite: "BellGardenCourtyard.ca",
-    rightContactLine: null,
-    programCredit: null,
-    poemHeading: "A Special poem for you!",
-    poemEventTitle: "Dr Aman Pal Graduation Party",
-    poemFooter:
-      "With grateful hearts, we thank you all,\n" +
-      "For joining us and answering our call.\n" +
-      "Your presence made this day complete,\n" +
-      "A memory forever cherished and sweet.",
+    rightRight: "/decorations/aman_graduation_balloons.png",
+    leftLeft: "/decorations/aman_graduation_confetti.png",
     poemBackgroundColor: {
-      backgroundColor: "rgba(22, 22, 20, 0.9)",
-      border: "3px solid #D8AF45",
-      boxShadow: "0 0 0 2px rgba(216,175,69,0.52), 0 10px 24px rgba(0,0,0,0.3)",
+      backgroundColor: "rgba(8, 35, 76, 0.9)",
+      border: "3px solid #73C7D5",
+      boxShadow: "0 0 0 2px rgba(8,35,76,0.9), 0 12px 30px rgba(8,35,76,0.35)",
     },
     eventDate: {
       iso: "2026-06-21",

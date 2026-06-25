@@ -56,8 +56,8 @@ export default function ThemeSelectorModal({ open, onSelect }: ThemeSelectorModa
                 isPressable
                 isHoverable
                 className={`transition-all duration-200 cursor-pointer w-full ${
-                  selected?.id === theme.id 
-                    ? "ring-2 ring-primary ring-offset-2 ring-offset-background scale-[1.02]" 
+                  selected?.id === theme.id
+                    ? "ring-2 ring-primary ring-offset-2 ring-offset-background scale-[1.02]"
                     : "hover:scale-[1.01]"
                 }`}
                 onPress={() => setSelected(theme)}
@@ -187,4 +187,4 @@ export default function ThemeSelectorModal({ open, onSelect }: ThemeSelectorModa
       </ModalContent>
     </Modal>
   );
-} 
+}
