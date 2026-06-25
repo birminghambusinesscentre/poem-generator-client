@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 import {
   buildCloudinarySubmissionTarget,
+  getCloudinaryConfigFromEnv,
   getDataUrlSizeInBytes,
   isSupportedImageDataUrl,
 } from "@/lib/cloudinary-submissions";
@@ -17,18 +18,6 @@ type UploadRequestBody = {
   themeId?: unknown;
   timestamp?: unknown;
 };
-
-function getCloudinaryConfig() {
-  const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
-  const apiKey = process.env.CLOUDINARY_API_KEY;
-  const apiSecret = process.env.CLOUDINARY_API_SECRET;
-
-  if (!cloudName || !apiKey || !apiSecret) {
-    return null;
-  }
-
-  return { apiKey, apiSecret, cloudName };
-}
 
 export async function POST(request: Request) {
   let body: UploadRequestBody;
@@ -59,7 +48,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const config = getCloudinaryConfig();
+  const config = getCloudinaryConfigFromEnv(process.env);
 
   if (!config) {
     return NextResponse.json(

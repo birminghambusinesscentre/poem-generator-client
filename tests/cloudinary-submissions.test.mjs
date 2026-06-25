@@ -19,6 +19,7 @@ new Function("module", "exports", outputText)(module, module.exports);
 
 const {
   buildCloudinarySubmissionTarget,
+  getCloudinaryConfigFromEnv,
   getDataUrlSizeInBytes,
   isSupportedImageDataUrl,
 } = module.exports;
@@ -58,4 +59,27 @@ test("image data URL helpers accept png and jpeg only and compute decoded size",
   assert.equal(isSupportedImageDataUrl("data:image/jpeg;base64,AAAA"), true);
   assert.equal(isSupportedImageDataUrl("data:image/gif;base64,AAAA"), false);
   assert.equal(getDataUrlSizeInBytes("data:image/png;base64,AAAA"), 3);
+});
+
+test("getCloudinaryConfigFromEnv reads CLOUDINARY_URL like event-adder", () => {
+  assert.deepEqual(
+    getCloudinaryConfigFromEnv({
+      CLOUDINARY_URL: "cloudinary://api%2Dkey:api%2Dsecret@demo-cloud",
+    }),
+    {
+      apiKey: "api-key",
+      apiSecret: "api-secret",
+      cloudName: "demo-cloud",
+    },
+  );
+});
+
+test("getCloudinaryConfigFromEnv rejects missing or invalid CLOUDINARY_URL", () => {
+  assert.equal(getCloudinaryConfigFromEnv({}), null);
+  assert.equal(
+    getCloudinaryConfigFromEnv({
+      CLOUDINARY_URL: "https://api-key:api-secret@demo-cloud",
+    }),
+    null,
+  );
 });

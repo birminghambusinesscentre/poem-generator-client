@@ -12,6 +12,14 @@ type SubmissionTarget = {
   publicId: string;
 };
 
+type CloudinaryConfig = {
+  apiKey: string;
+  apiSecret: string;
+  cloudName: string;
+};
+
+type CloudinaryEnv = Record<string, string | undefined>;
+
 function sanitizeSegment(value: string, fallback: string): string {
   const sanitized = value
     .trim()
@@ -22,6 +30,29 @@ function sanitizeSegment(value: string, fallback: string): string {
   return sanitized || fallback;
 }
 
+function parseCloudinaryUrl(value: string): CloudinaryConfig | null {
+  try {
+    const url = new URL(value);
+
+    if (
+      url.protocol !== "cloudinary:" ||
+      !url.username ||
+      !url.password ||
+      !url.hostname
+    ) {
+      return null;
+    }
+
+    return {
+      apiKey: decodeURIComponent(url.username),
+      apiSecret: decodeURIComponent(url.password),
+      cloudName: url.hostname,
+    };
+  } catch {
+    return null;
+  }
+}
+
 function sanitizeTimestamp(value: string): string {
   return (
     value
@@ -29,6 +60,16 @@ function sanitizeTimestamp(value: string): string {
       .replace(/[^a-zA-Z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "") || "unknown-time"
   );
+}
+
+export function getCloudinaryConfigFromEnv(
+  env: CloudinaryEnv,
+): CloudinaryConfig | null {
+  if (!env.CLOUDINARY_URL) {
+    return null;
+  }
+
+  return parseCloudinaryUrl(env.CLOUDINARY_URL);
 }
 
 export function buildCloudinarySubmissionTarget(
